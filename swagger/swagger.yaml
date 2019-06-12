@@ -51,6 +51,12 @@ paths:
       summary: Create a new listing
       tags:
         - "listing"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Listing'
       responses:
         '201':
           description: Listing was created
@@ -100,6 +106,12 @@ paths:
           description: "The listing's unique ID"
           schema:
             type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Listing'
       responses:
         '200':
           description: Listing updated
@@ -170,6 +182,10 @@ components:
           format: uint32
         active: 
           type: boolean
+      required:
+        - street
+        - type
+        - active
     ResponseListing:
       allOf:
       - $ref: "#/components/schemas/Listing"
